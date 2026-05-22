@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("🎈 JURNALIKA")
+st.title("🎈 Jurnalika")
 st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    "Kami Bnagga Jadi PERS Kampus [jurnalika.com](https://www.jurnalikanews.com/)."
 )
