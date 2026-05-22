@@ -14,3 +14,6 @@ df = pd.DataFrame(
 )
 
 st.map(df)
+import streamlit as st
+
+st.balloons()
