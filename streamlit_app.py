@@ -5,6 +5,7 @@ st.write(
     "Kami Bnagga Jadi PERS Kampus [jurnalika.com](https://www.jurnalikanews.com/)."
 )
 import pandas as pd
+import pydeck as pdk
 import streamlit as st
 from numpy.random import default_rng as rng
 
@@ -13,7 +14,33 @@ df = pd.DataFrame(
     columns=["lat", "lon"],
 )
 
-st.map(df)
-import streamlit as st
-
-st.balloons()
+st.pydeck_chart(
+    pdk.Deck(
+        map_style=None,  # Use Streamlit theme to pick map style
+        initial_view_state=pdk.ViewState(
+            latitude=37.76,
+            longitude=-122.4,
+            zoom=11,
+            pitch=50,
+        ),
+        layers=[
+            pdk.Layer(
+                "HexagonLayer",
+                data=df,
+                get_position="[lon, lat]",
+                radius=200,
+                elevation_scale=4,
+                elevation_range=[0, 1000],
+                pickable=True,
+                extruded=True,
+            ),
+            pdk.Layer(
+                "ScatterplotLayer",
+                data=df,
+                get_position="[lon, lat]",
+                get_color="[200, 30, 0, 160]",
+                get_radius=200,
+            ),
+        ],
+    )
+)
