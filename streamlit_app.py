@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 
 # Judul Aplikasi
 st.title("🧪 Kalkulator Bobot Molekul (BM)")
